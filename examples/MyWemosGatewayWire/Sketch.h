@@ -22,9 +22,9 @@
    Version 1.0 - Maximilian Wache
 
    DESCRIPTION
-   The ESO8266 WiFi Gateway sends data received from sensors to the WiFi link.
+   The ESP8266 WiFi Gateway sends data received from sensors to the WiFi link.
    The gateway also accepts input on the WiFi interface, which is then sent out to the radio network.
-   To connect all available LED and button features from MySensors a port extender IC 8574(A) is used.
+   To connect all available LED and button features from MySensors a port extender IC PCF8574(A) is used.
 
    LED purposes:
    - RX (green) - blink fast on radio message received. In inclusion mode will blink fast only on presentation received
@@ -32,19 +32,14 @@
    - ERR (red) - fast blink on error during transmission error or receive CRC error
    - To use own indication and inclusion-indication handler define MY_INDICATION_HANDLER and MY_INCLUSION_INDICATION_HANDLER.
      Then provide own function handlers indication() and inclusionModeIndication().
-     In this example these handlers are connected to the Wire (I2C) port expander 8574(A), see MyIoExpander.h.
+     In this example these handlers are connected to the Wire (I2C) port expander PCF8574(A), see MyIoExpander.h.
 
-   See https://www.mysensors.org/build/connect_radio for wiring instructions.
-
-   If you are using a "barebone" ESP8266, see
-   https://www.mysensors.org/build/esp8266_gateway#wiring-for-barebone-esp8266
+   See https://www.mysensors.org/build/connect_radio for wiring instructions of the radio.
 
    Inclusion mode button and LED:
-   - Both, button and LED, are also connected to the port expander 8574(A) and are updated by MyIoExpander.h.
+   - Both, button and LED, are also connected to the port expander PCF8574(A) and are updated by MyIoExpander.h.
 
    To configure the pins of the port expander see private const values at top of class MyIoExpander.
-
-   Hardware SHA204 signing is currently not supported!
 
    Make sure to fill in your SSID and WiFi password in the file arduino_secrets.h. 
    You can copy and rename arduino_secrets.h.template to get this.

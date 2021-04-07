@@ -21,6 +21,16 @@
  * REVISION HISTORY
  * Version 1.0 - Maximilian Wache
  *
+ * DESCRIPTION
+ * For more information about the PCF8574 I2C bus IO expander see:
+ * https://howtodogood.com/83281-PCF8574-GPIO-Extender-With-Arduino-and-NodeMCU-60
+ * https://github.com/jxmot/esp8266-PCF8574
+ * https://github.com/RobTillaart/Arduino/tree/master/libraries/PCF8574
+ * 
+ * For connecting LEDs and buttons see:
+ * https://circuitmess.com/gpio-expander-guide/
+ * 
+ * To configure the pins for the LEDs and buttons connected to the port expander see private const values below.
  */
 
 #pragma once
@@ -30,8 +40,8 @@ typedef void (*OnMyIoExpanderInputChange_t)(uint8_t, bool);
 class MyIoExpander
 {
 private:
-    const uint8_t IN_OUT_ADDR = 0x20; // TWI IO-Expander 8574 address 000
-    //const uint8_t IN_OUT_ADDR = 0x38; // TWI IO-Expander 8574A address 000
+    const uint8_t IN_OUT_ADDR = 0x20; // TWI IO-Expander PCF8574 address 000
+    //const uint8_t IN_OUT_ADDR = 0x38; // TWI IO-Expander PCF8574A address 000
 
     const uint8_t INPUT_MASK = 0xC0;
 
